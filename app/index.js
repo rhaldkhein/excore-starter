@@ -1,14 +1,20 @@
 import core from 'excore'
-import {
-  configureServices,
-  configureApplication
-} from './startup'
+import * as startup from './startup'
 
 // Create core application
 const app = core()
 
-// Configure and start application
+// Configure services and application
 app.configure(
-  configureServices,
-  configureApplication
-).start()
+  startup.configureServices,
+  startup.configureApplication
+)
+
+// Hook to start event
+app.on('start', provider => {
+  return Promise.resolve()
+    .then(() => provider.get('@server').listen())
+})
+
+// Fire it up!
+app.start()

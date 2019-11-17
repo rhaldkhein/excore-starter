@@ -4,10 +4,10 @@
   "description": "A boilerplate for Excore project",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf build && babel app --out-dir build",
-    "watch": "rm -rf build && babel app --watch --out-dir build",
-    "server": "DEBUG=excore:* nodemon build",
-    "dev": "npm run watch && nodemon build",
+    "dev": "DEBUG=excore:* nodemon --exec babel-node app",
+    "start": "node bin",
+    "clean": "rm -rf bin",
+    "build": "npm run clean && babel app --out-dir bin",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,15 +26,19 @@
   },
   "homepage": "https://github.com/rhaldkhein/excore-app#readme",
   "dependencies": {
-    "excore": "0.0.2"
+    "body-parser": "^1.19.0",
+    "excore": "^0.1.21",
+    "mongoose": "^5.7.11",
+    "pug": "^2.0.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.7.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/preset-env": "^7.4.5",
-    "nodemon": "^1.19.1"
+    "@babel/preset-env": "^7.6.3",
+    "nodemon": "^1.19.4"
   }
 }

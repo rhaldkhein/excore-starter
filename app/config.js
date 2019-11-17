@@ -1,16 +1,20 @@
-const production = process.NODE_ENV === 'production'
+const production = process.env.NODE_ENV === 'production'
+const debug = !!process.env.DEBUG
 
 export default {
 
   env: {
-    production
+    production,
+    debug
   },
 
-  server: {
-    apiBaseUrl: '/api',
-    port: 3000
+  db: {
+    url: 'mongodb://localhost:27017/myapp',
+    option: {
+      useNewUrlParser: true
+    }
   }
 
-  // Add all your custom config here
+  // Add all your configurations here
 
 }
