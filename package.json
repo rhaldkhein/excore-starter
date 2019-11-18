@@ -4,7 +4,7 @@
   "description": "A boilerplate for Excore project",
   "main": "index.js",
   "scripts": {
-    "dev": "DEBUG=excore:* nodemon --exec babel-node app",
+    "dev": "cross-env DEBUG=excore:* nodemon --exec babel-node app",
     "start": "node bin",
     "build": "rm -rf bin && babel app --out-dir bin",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -39,6 +39,7 @@
     "@babel/plugin-proposal-decorators": "^7.6.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.6.3",
+    "cross-env": "^6.0.3",
     "nodemon": "^1.19.4"
   }
 }
