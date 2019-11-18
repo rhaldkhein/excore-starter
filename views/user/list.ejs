@@ -1,0 +1,51 @@
+<h1>User List</h1>
+
+<div>Go to <a href="/">Home</a></div>
+<br />
+<div id="list">Loading...</div>
+
+<script src="https://unpkg.com/mithril/mithril.js"></script>
+<script>
+
+  function List() {
+
+    let users = []
+
+    function loadUsers() {
+      m.request({ url: '/api/user/list' })
+        .then(({ payload }) => users = payload)
+    }
+
+    function addUser() {
+      m.request({ method: 'POST', url: '/api/user' })
+        .then(({ payload }) => users = payload)
+    }
+
+    function removeUser() {
+      m.request({ method: 'DELETE', url: '/api/user' })
+        .catch(({ response }) => alert(response.error.message))
+    }
+
+    loadUsers()
+
+    return {
+      view() {
+        return [
+          m('ul',
+            users.map(user => {
+              return m('li', { key: user._id }, 'User ID: ' + user._id)
+            })
+          ),
+          m('button', { onclick: addUser }, 'Create Random User'),
+          m('button', { onclick: removeUser }, 'Remove User')
+        ]
+      }
+    }
+  }
+
+  window.addEventListener(
+    'DOMContentLoaded',
+    () => m.mount(document.getElementById('list'), List)
+  );
+
+</script>

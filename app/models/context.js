@@ -3,13 +3,11 @@ import mongoose from 'mongoose'
 const log = debug('excore:database')
 
 import User from './User'
-import Blog from './Blog'
 
 function DbContext(provider, config = {}) {
   return {
 
     User,
-    Blog,
     // Add more models here
 
     async connect() {
