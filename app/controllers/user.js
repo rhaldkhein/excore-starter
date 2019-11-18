@@ -3,24 +3,22 @@ import { page, get, post } from 'excore/controller'
 @page('user')
 class Hello {
 
-  // url: /user
+  // GET: /user
   @get('index')
   world(req, res) {
-    res.render('home', {
-      name: 'Foo'
-    })
+    res.render('user')
   }
 
-  // GET: /user/register
-  @get('register')
-  register(req, res) {
-    res.render('register')
+  // GET: /user/signup
+  @get('signup')
+  signup(req, res) {
+    res.render('user/signup')
   }
 
-  // POST: /user/register
-  @post('register')
-  registerProcess(req, res) {
-    res.render('register')
+  // POST: /user/signup
+  @post('signup')
+  signupProcess(req, res) {
+    res.render('user/signup')
   }
 
 }

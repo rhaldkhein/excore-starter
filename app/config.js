@@ -9,12 +9,14 @@ export default {
   },
 
   db: {
-    url: 'mongodb://localhost:27017/myapp',
-    option: {
-      useNewUrlParser: true
+    url: 'mongodb://localhost:27017/excore-app',
+    options: {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true
     }
   }
 
-  // Add all your configurations here
+  // Add more configurations here
 
 }

@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "DEBUG=excore:* nodemon --exec babel-node app",
     "start": "node bin",
-    "clean": "rm -rf bin",
-    "build": "npm run clean && babel app --out-dir bin",
+    "build": "rm -rf bin && babel app --out-dir bin",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,6 +14,7 @@
     "url": "git+https://github.com/rhaldkhein/excore-app.git"
   },
   "keywords": [
+    "excore",
     "boilderplate",
     "express",
     "jservice"
@@ -27,9 +27,9 @@
   "homepage": "https://github.com/rhaldkhein/excore-app#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "ejs": "^2.7.2",
     "excore": "^0.1.21",
-    "mongoose": "^5.7.11",
-    "pug": "^2.0.4"
+    "mongoose": "^5.7.11"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.4",

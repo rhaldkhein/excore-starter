@@ -10,10 +10,10 @@ app.configure(
   startup.configureApplication
 )
 
-// Hook to start event
-app.on('start', provider => {
-  return Promise.resolve()
-    .then(() => provider.get('@server').listen())
+// Hook to start event and start required services
+app.on('start', async provider => {
+  await provider.get('db').connect()
+  await provider.get('@server').listen()
 })
 
 // Fire it up!
